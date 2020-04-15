@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'PagesController@index')->name('index');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/products', 'PagesController@products')->name('products');
@@ -23,6 +24,16 @@ Route::group(['prefix'=>'admin'], function (){
     Route::post('/product/create', 'AdminPagesController@store')->name('admin.product.store');
     Route::post('/product/edit/{id}', 'AdminPagesController@update')->name('admin.product.update');
     Route::post('/product/delete/{id}', 'AdminPagesController@delete')->name('admin.product.delete');
+});
+
+// category routes
+Route::group(['prefix'=>'category'], function (){
+    Route::get('/', 'CategoryController@index')->name('admin.categories');
+    Route::get('/create', 'CategoryController@create')->name('admin.category.create');
+    Route::get('/edit/{id}', 'CategoryController@edit')->name('admin.category.edit');
+    Route::post('/create', 'CategoryController@store')->name('admin.category.store');
+    Route::post('/edit/{id}', 'CategoryController@update')->name('admin.category.update');
+    Route::post('/delete/{id}', 'CategoryController@delete')->name('admin.category.delete');
 });
 
 
