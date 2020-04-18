@@ -23,6 +23,15 @@ class PagesController extends Controller
         //
         return view('frontend.pages.contact');
     }
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $products = Product::orWhere('title', 'like', '%'.$search.'%')
+            ->orWhere('description', 'like', '%'.$search.'%')
+            ->orWhere('price', 'like', '%'.$search.'%')
+            ->orderBy('id', 'desc')->paginate(9);
+        return view('frontend.product.search', compact('search','products'));
+    }
     public function products()
     {
         $products = Product::orderBy('id', 'desc')->paginate(9);

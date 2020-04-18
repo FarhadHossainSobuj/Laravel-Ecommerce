@@ -14,7 +14,11 @@
 //Front end parts
 Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
-Route::get('/products', 'frontend\PagesController@products')->name('products');
+
+//Product controller
+Route::get('/products', 'frontend\ProductController@index')->name('products');
+Route::get('/product/{slug}', 'frontend\ProductController@show')->name('products.show');
+Route::get('/search', 'frontend\PagesController@search')->name('search');
 
 
 // Back end parts
