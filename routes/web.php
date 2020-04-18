@@ -42,5 +42,15 @@ Route::group(['prefix'=>'category'], function (){
     Route::post('/delete/{id}', 'backend\CategoryController@delete')->name('admin.category.delete');
 });
 
+// brand routes
+Route::group(['prefix'=>'brands'], function (){
+    Route::get('/', 'backend\BrandsController@index')->name('admin.brands');
+    Route::get('/create', 'backend\BrandsController@create')->name('admin.brand.create');
+    Route::get('/edit/{id}', 'backend\BrandsController@edit')->name('admin.brand.edit');
+    Route::post('/create', 'backend\BrandsController@store')->name('admin.brand.store');
+    Route::post('/edit/{id}', 'backend\BrandsController@update')->name('admin.brand.update');
+    Route::post('/delete/{id}', 'backend\BrandsController@delete')->name('admin.brand.delete');
+});
+
 
 

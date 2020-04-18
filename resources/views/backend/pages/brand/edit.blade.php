@@ -6,34 +6,30 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    <h2>Add Category</h2>
+                    <h2>Update Brand</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{route('admin.category.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('admin.brand.update', $brand->id)}}" enctype="multipart/form-data">
                         @csrf
                         @include('backend.partials.error_messages')
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Enter category name">
+                            <input type="text" class="form-control" name="name" value="{{$brand->name}}" placeholder="Enter category name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
-                            <textarea class="form-control" name="description" id="" cols="80" rows="10"></textarea>
+                            <textarea class="form-control" name="description" id="" cols="80" rows="10">{{$brand->description}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Parent Category (optional)</label>
-                            <select class="form-control" name="parent_id">
-                                <option value="">---Select a parent Category---</option>
-                                @foreach($parent_categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                            </div>
                         <div class="form-group">
-                            <label for="image">Category Image (optional)</label>
+                            <label for="old image">Brand Old Image</label><br>
+                            <img src="{{asset('/images/categories/'.$brand->image)}}" alt="" width="100" height="100"><br>
+
+                            <label for="image">Brand Image</label>
                             <input type="file" class="form-control" name="image" id="exampleInputEmail1">
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Category</button>
+                        <button type="submit" class="btn btn-primary">Update Brand</button>
                     </form>
                 </div>
             </div>

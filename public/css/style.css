@@ -5,6 +5,14 @@
 .margin-top-20{
     margin-top: 20px;
 }
+.child-rows {
+    padding-left: 20px;
+    border-left: 1px solid #dfdfdf;
+    background: #fff;
+}
+.child-rows a.list-group-item{
+    border-left: 0px !important;
+}
 .footer-bottom{
     padding: 20px;
     margin-top: 20px;

@@ -6,10 +6,10 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    <h2>Add Category</h2>
+                    <h2>Add Brands</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{route('admin.category.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('admin.brand.store')}}" enctype="multipart/form-data">
                         @csrf
                         @include('backend.partials.error_messages')
                         <div class="form-group">
@@ -21,19 +21,10 @@
                             <textarea class="form-control" name="description" id="" cols="80" rows="10"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Parent Category (optional)</label>
-                            <select class="form-control" name="parent_id">
-                                <option value="">---Select a parent Category---</option>
-                                @foreach($parent_categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Category Image (optional)</label>
+                            <label for="image">Brand Image (optional)</label>
                             <input type="file" class="form-control" name="image" id="exampleInputEmail1">
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Category</button>
+                        <button type="submit" class="btn btn-primary">Add Brand</button>
                     </form>
                 </div>
             </div>

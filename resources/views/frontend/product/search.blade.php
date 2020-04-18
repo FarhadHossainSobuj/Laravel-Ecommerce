@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-8">
                 <div class="widget">
-                    <h3>Searched Products</h3>
+                    <h3>Searched Products for - {{$search}}</h3>
                     @include('frontend.product.partials.all_products')
                 </div>
             </div>
